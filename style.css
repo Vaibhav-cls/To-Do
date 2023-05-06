@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-image: url("https://www.teahub.io/photos/full/44-440307_light-colors-geometric-pattern-abstract-wallpaper-abstract-wallpaper.jpg");
+    background-color: #8D5CAD;
+}
+
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: 50px;
+    text-align: center;
+    padding-bottom: 20px;
+    color: rgb(65, 44, 18);
+}
+
+.header .memo {
+
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    width: 35%;
+    padding-bottom: 20px;
+}
+
+.header {
+    padding-top: 10px;
+    padding-bottom: 20px;
+    min-width: 527px;
+    width: 80%;
+    margin: auto;
+    -webkit-box-shadow: 10px 10px 79px -4px rgba(15, 153, 130, 1);
+    -moz-box-shadow: 10px 10px 79px -4px rgba(15, 153, 130, 1);
+    box-shadow: 10px 10px 79px -4px rgba(15, 153, 130, 1);
+    transition: 0.2s;
+    background-image: linear-gradient(to right top, #00fffd, #45f6ff, #87eaff, #b9ddff, #d8d2ff);
+}
+
+.header .memo .input {
+    padding: 4px 12px;
+    margin: auto;
+    background: none;
+    font-size: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgba(4, 61, 116, 0.993);
+    border: none;
+    outline: none;
+    border-bottom: 1px solid rgba(87, 87, 87, 0.562);
+    transition: 0.3s border;
+}
+
+.header .memo .input:hover {
+    border-bottom: 2px solid rgb(58, 58, 58);
+}
+
+.input::placeholder {
+    color: rgba(4, 61, 116, 0.993);
+}
+
+.add {
+    font-size: 30px;
+    text-align: center;
+    cursor: pointer;
+    background-color: grey;
+    padding: 0.1px 10px;
+    transition: 0.2s background-color;
+}
+
+.add:hover {
+    background-color: rgb(255, 115, 0);
+    color: #fff;
+}
+
+ul li {
+    cursor: pointer;
+    position: relative;
+    margin: auto;
+    width: 400px;
+    padding: 12px 8px 12px 40px;
+    list-style-type: none;
+    font-size: 18px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    transition: 0.3s background-color;
+}
+
+ul li:hover {
+    background-color: rgba(33, 168, 45, 0.63);
+}
+
+ul li.checked {
+    background: rgb(4, 92, 17);
+    color: rgb(169, 180, 14);
+    text-decoration: line-through;
+}
+
+ul li.checked::before {
+    content: '';
+    position: absolute;
+    border-color: rgb(54, 240, 17);
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    top: 10px;
+    left: 16px;
+    transform: rotate(45deg);
+    height: 15px;
+    width: 7px;
+}
+
+.close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 5px 12px 0px;
+    font-size: 35px;
+}
+
+.close:hover {
+    background-color: #cc6109;
+    color: white;
+}
