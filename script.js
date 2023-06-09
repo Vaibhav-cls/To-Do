@@ -1,52 +1,87 @@
-let list_items = document.getElementsByTagName("LI");
-        let i;
-        for(i=0;i<list_items.length;i++)
-        {
-            let span = document.createElement("SPAN");
-            let text = document.createTextNode("\u00D7");
-            span.className = "close";
-            span.appendChild(text);
-            list_items[i].appendChild(span);
-        }
-        let exit = document.getElementsByClassName("close");
-        let j;
-        for(j=0;j<exit.length;j++)
-        {
-            exit[j].onclick = function()
-            {
-                let div = this.parentElement;
-                div.style.display = "none";
-            }
-        }
-        let check = document.querySelector('ul');
+let tasks = [];
+
+    function addTask(event){
+      event.preventDefault();
+
+      let taskInput = document.getElementById("task");
+      let dateInput = document.getElementById("date");
+      let taskList = document.getElementById("taskList");
+      let message = document.getElementById("message");
+
+      if(taskInput.value === "" || dateInput.value === ""){
+        message.innerText = "Please fill in both fields";
+      message.style.display = "block";
+      return;
+    }
+
+    let task = {
+      name: taskInput.value,
+      date: dateInput.value
+    }
+
+    tasks.push(task);
+    taskInput.value = "";
+    dateInput.value = "";
+
+    displayTasks();
+    message.innerText = "Task added successfully";
+    message.style.color = "whitesmoke";
+    message.style.display = "block";
+    setTimeout(function(){
+      message.style.display = "none";
+    }, 3000);
+
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }
+
+  function deleteTask(index){
+    tasks.splice(index, 1);
+    displayTasks();
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }
+
+  function displayTasks(){
+    let taskList = document.getElementById("taskList");
+    taskList.innerHTML = "";
+
+    for(let i=0; i<tasks.length; i++){
+      let li = document.createElement("li");
+      let span = document.createElement("span");
+      let button = document.createElement("button");
+
+      span.innerText = tasks[i].name + " - " + tasks[i].date;
+      button.innerText = "Delete";
+      button.classList.add("delete");
+
+      button.addEventListener("click", function(){
+        deleteTask(i);
+      });
+
+      li.appendChild(span);
+      li.appendChild(button);
+      taskList.appendChild(li);
+    }
+  }
+  let check = document.querySelector('ul');
         check.addEventListener('click', function(set){
             if(set.target.tagName === 'LI'){
                 set.target.classList.toggle('checked')
             } 
         }, false);
+  // Check if tasks exist in local storage
+  if(localStorage.getItem("tasks")){
+    tasks = JSON.parse(localStorage.getItem("tasks"));
+    displayTasks();
+  }
+  document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+  });
+  document.addEventListener('DOMContentLoaded', function() {
+    var noDragElements = document.querySelectorAll('.no-drag');
 
-        function newitem()
-        {
-            let task = document.createElement("li");
-            let input_val = document.getElementById("input_task").value;
-            let t = document.createTextNode(input_val);
-            task.appendChild(t);
-            if(input_val === ''){
-                alert("Enter some task!");
-            }
-            else{
-                document.getElementById("list").appendChild(task);
-            }
-            let span = document.createElement("SPAN");
-            let text = document.createTextNode("\u00D7");
-            span.className = "close";
-            span.appendChild(text);
-            task.appendChild(span);
-            for(i=0;i<exit.length;i++) {
-                exit[i].onclick = function(){
-                    let div =this.parentElement;
-                    div.style.display = "none";
-                }
-            }
-            document.getElementById("input_task").innerHTML=null;
-        }
+    for (var i = 0; i < noDragElements.length; i++) {
+      noDragElements[i].addEventListener('dragstart', function(e) {
+        e.preventDefault();
+      });
+    }
+  });

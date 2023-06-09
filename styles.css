@@ -1,0 +1,159 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 2px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 99.4vh;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: rgb(1, 59, 1);
+    border: 20px solid transparent;
+    border-image: url('images/wooden.jpg') 30 round;
+}
+.sticky-1{
+    position: absolute;
+    left: 50px;
+}
+.sticky-2{
+    position: absolute;
+    right: 50px;
+    top: 200px;
+}
+img {
+    margin-top: 40px;
+    margin-bottom: 30px;
+    width: 130px;
+}
+
+.text {
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+#task {
+    margin-right: 10px;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.container {
+    box-shadow: 1px 2px 10px rgba(255, 255, 255, 0.767);
+    width: 50%;
+    padding: 10px;
+    border-radius: 10px;
+    background: rgb(1, 59, 1);
+    background: linear-gradient(90deg, rgba(1, 59, 1, 1) 0%, rgba(0, 101, 69, 0.9108018207282913) 41%, rgba(0, 80, 51, 1) 99%);
+    backdrop-filter: blur(10px);
+    margin: 0px auto;
+}
+
+input[type="text"],
+input[type="date"] {
+    padding: 10px;
+    width: 60%;
+    border-radius: 5px;
+    border: none;
+    margin: 10px;
+    outline: none;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+}
+
+input[type="submit"] {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.2s ease-in-out;
+}
+
+input[type="submit"]:hover {
+    background-color: #2e8b57;
+    transform: scale(1.1);
+}
+@media screen and (max-width: 414px){
+    form{
+        flex-wrap: wrap;
+    }
+    .container{
+        width: 80%;
+    }
+    input[type="text"],
+    input[type="date"]{
+        width: 100%;
+    } 
+}
+ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+li {
+    padding: 10px;
+    background-color: #f4f4f4;
+    margin-top: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+}
+
+li:hover {
+    background-color: #e0e0e0;
+}
+
+ul li.checked {
+    background: rgb(95, 95, 95);
+    color: rgb(192, 192, 192);
+    text-decoration: line-through;
+}
+
+.delete {
+    background-color: #f44336;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.delete:hover {
+    background-color: #cc0000;
+    transform: scale(1.1);
+}
+
+#message {
+    color: whitesmoke;
+    text-align: center;
+    display: none;
+    margin-top: 20px;
+}
